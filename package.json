@@ -92,7 +92,6 @@
         "connected-react-router": "^6.3.2",
         "cross-env": "^5.2.0",
         "font-awesome": "^4.7.0",
-        "jquery": "^1.9.1",
         "prop-types": "^15.7.2",
         "react": "^16.8.6",
         "react-bootstrap": "^1.0.0-beta.6",
