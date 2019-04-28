@@ -4,5 +4,5 @@ npm i
 
 ### To start server
 npm run start
-### To make Buil
+### To make Build
 npm run build
