@@ -5,9 +5,9 @@ import { render } from '@hot-loader/react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import configureStore, { history } from './store/configureStore';
-import Root from './containers/Root';
+import Root from './containers/Root/Loadable';
 
 // Yep, that's right. You can import SASS/CSS files too! Webpack will run the associated loader and plug this into the page.
 require('./favicon.ico');
@@ -17,26 +17,34 @@ const MOUNT_NODE = document.getElementById('app');
 render(
     <AppContainer>
         <Provider store={store}>
-            <Router>
-                <Route path="/" component={Root} />
-            </Router>
+            <ConnectedRouter history={history}>
+                <Router>
+                    <Switch>
+                        <Route path="/" component={Root} />
+                    </Switch>
+                </Router>
+            </ConnectedRouter>
         </Provider>
     </AppContainer>,
     MOUNT_NODE
 );
 
 if (module.hot) {
-    module.hot.accept('./containers/Root', () => {
-        const NewRoot = require('./containers/Root').default;
+    module.hot.accept('./containers/Root/Loadable', () => {
+        const NewRoot = require('./containers/Root/Loadable').default;
         render(
             <AppContainer>
                 <Provider store={store}>
                     <ConnectedRouter history={history}>
-                        <Route path="/" component={NewRoot} />
+                        <Router>
+                            <Switch>
+                                <Route path="/" component={NewRoot} />
+                            </Switch>
+                        </Router>
                     </ConnectedRouter>
                 </Provider>
             </AppContainer>,
-            document.getElementById('app')
+            MOUNT_NODE
         );
     });
 }

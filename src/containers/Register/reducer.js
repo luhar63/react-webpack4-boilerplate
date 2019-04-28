@@ -20,9 +20,17 @@ export default function loginReducer(state = initialState.user, action) {
     case LOGIN_FETCH:
         // For this example, just simulating a save by changing date modified.
         // In a real app using Redux, you might use redux-thunk and handle the async call in fuelSavingsActions.js
-        return objectAssign({}, state, { isLoading: false, error: null, data: null });
+        return objectAssign({}, state, {
+            isLoading: false,
+            error: null,
+            data: null
+        });
     case LOGIN_FETCHING:
-        return objectAssign({}, state, { isLoading: true, error: null, data: null });
+        return objectAssign({}, state, {
+            isLoading: true,
+            error: null,
+            data: null
+        });
 
     case LOGIN_FETCHED:
         newState = objectAssign({}, state);

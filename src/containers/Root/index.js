@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import Login from 'Containers/Login/Loadable';
 import Register from 'Containers/Register/Loadable';
+import ToastClose from 'Components/ToastClose';
 
+import 'react-toastify/dist/ReactToastify.min.css';
 import './style.scss';
 import './normalize.scss';
 
@@ -17,35 +19,30 @@ import './normalize.scss';
 // component at the top-level.
 
 class Root extends Component {
-    state = {};
+  state = {};
 
-    render() {
-        return (
-            <div>
-                <ToastContainer
-                    hideProgressBar
-                    autoClose={5000}
-                    className="toast-container"
-                    toastClassName="toast"
-                    bodyClassName="toast-body"
-                    closeButton={<i className="zmdi zmdi-close" />}
-                />
-                <Switch>
-                    <Redirect exact from="/" to="/login" />
-                    <Route
-                        exact
-                        path="/login"
-                        render={props => <Login {...props} />}
-                    />
-                    <Route
-                        exact
-                        path="/register"
-                        render={props => <Register {...props} />}
-                    />
-                </Switch>
-            </div>
-        );
-    }
+  render() {
+      return (
+          <div>
+              <ToastContainer
+                  autoClose={5000}
+                  className="toast-container"
+                  toastClassName="toast"
+                  bodyClassName="toast-body"
+                  closeButton={<ToastClose className="fa fa-times" />}
+              />
+              <Switch>
+                  <Redirect exact from="/" to="/login" />
+                  <Route exact path="/login" render={props => <Login {...props} />} />
+                  <Route
+                      exact
+                      path="/register"
+                      render={props => <Register {...props} />}
+                  />
+              </Switch>
+          </div>
+      );
+  }
 }
 
 Root.propTypes = {
@@ -54,12 +51,12 @@ Root.propTypes = {
 
 function mapStateToProps() {
     return {
-        // user: state.userReducer.user
+    // user: state.userReducer.user
     };
 }
 function mapDispatchToProps() {
     return {
-        // getUser: getUser()
+    // getUser: getUser()
     };
 }
 
