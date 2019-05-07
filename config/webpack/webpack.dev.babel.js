@@ -10,7 +10,8 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: paths.outputPath,
-        chunkFilename: '[name].js'
+        chunkFilename: '[name].js',
+        publicPath: '/'
     },
     module: {
         rules: rules('dev')
@@ -23,8 +24,8 @@ module.exports = {
         assetFilter: assetFilename => {
             return (
                 assetFilename.endsWith('.css') ||
-                assetFilename.endsWith('.js') ||
-                assetFilename.endsWith('.scss')
+        assetFilename.endsWith('.js') ||
+        assetFilename.endsWith('.scss')
             );
         }
     },

@@ -12,7 +12,8 @@ module.exports = {
     output: {
         filename: `${paths.jsFolder}/[name].[hash].js`,
         path: paths.outputPath,
-        chunkFilename: '[name].[chunkhash].js'
+        chunkFilename: '[name].[chunkhash].js',
+        publicPath: '/'
     },
     module: {
         rules: rules('prod')
