@@ -9,6 +9,7 @@ module.exports = {
     alias: {
         Containers: path.resolve(__dirname, 'src/containers'),
         Components: path.resolve(__dirname, 'src/components'),
-        Constants: path.resolve(__dirname, 'src/constants')
+        Constants: path.resolve(__dirname, 'src/constants'),
+        'react-dom': '@hot-loader/react-dom'
     }
 };

@@ -7,7 +7,7 @@ import paths from './paths';
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: paths.entryPath,
+    entry: [paths.entryPath],
     // module: {
     //     rules
     // },
@@ -24,6 +24,6 @@ module.exports = {
                 removeAttributeQuotes: true
             }
         })
-        // new ExtractTextPlugin('[name]-[hash].min.css', { allChunks: true })
+    // new ExtractTextPlugin('[name]-[hash].min.css', { allChunks: true })
     ]
 };

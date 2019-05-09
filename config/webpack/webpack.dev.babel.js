@@ -6,7 +6,7 @@ import resolve from './webpack.config.resolve';
 
 module.exports = {
     mode: 'development',
-    devtool: 'inline-source-map',
+    devtool: 'cheap-module-source-map',
     output: {
         filename: '[name].js',
         path: paths.outputPath,

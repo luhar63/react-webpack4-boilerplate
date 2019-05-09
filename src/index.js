@@ -9,11 +9,15 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import configureStore, { history } from './store/configureStore';
 import Root from './containers/Root/Loadable';
 
+// require('bootstrap/dist/css/bootstrap.min.css');
+// require('font-awesome/css/font-awesome.min.css');
 // Yep, that's right. You can import SASS/CSS files too! Webpack will run the associated loader and plug this into the page.
 require('./favicon.ico');
+
 // Tell webpack to load favicon.ico
 const store = configureStore();
 const MOUNT_NODE = document.getElementById('app');
+
 render(
     <AppContainer>
         <Provider store={store}>
