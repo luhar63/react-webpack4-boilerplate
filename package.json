@@ -13,7 +13,7 @@
         "test:cover": "npm run test --coverage"
     },
     "keywords": [],
-    "author": "",
+    "author": "Rahul Maurya (https://github.com/luhar63)",
     "license": "ISC",
     "devDependencies": {
         "@babel/cli": "^7.2.3",
